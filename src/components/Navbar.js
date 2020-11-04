@@ -3,7 +3,7 @@ import React from 'react';
 import Constants from "expo-constants";
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -14,9 +14,9 @@ function Navbar(){
   return (
     <View style={styles.navbar}>
 
-      <TouchableHighlight>
+      <TouchableHighlight underlayColor='#B54646' onPress={() => { navigation.toggleDrawer()}}>
         <View>
-          <FontAwesomeIcon icon={ faBars } size={25} color={'white'} onPress={() => { navigation.toggleDrawer()}}/>
+          <FontAwesomeIcon icon={ faBars } size={25} color={'white'} />
         </View>
       </TouchableHighlight>
 
@@ -24,7 +24,7 @@ function Navbar(){
 
       <TouchableHighlight>
         <View>
-          <FontAwesomeIcon icon={ faBars } size={25} color={'white'} onPress={() => { navigation.toggleDrawer()}}/>
+          <FontAwesomeIcon icon={ faSearch } size={25} color={'white'}/>
         </View>
       </TouchableHighlight>
 

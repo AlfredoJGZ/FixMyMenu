@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Font } from 'expo';
 import { StyleSheet } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,10 +14,18 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
 
+  useEffect(() => {
+    const loadFont = async () => {
+      await Font.loadAsync({
+        'museo-moderno-regular': require('./assets/fonts/MuseoModerno-Regular.ttf')
+      })
+    }
+  });
+
   return(
     <NavigationContainer>
       <Drawer.Navigator initialRouteName='Home' drawerStyle={styles.drawer} drawerContentOptions={drawerItemsStyles} drawerContent={props => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name='Home' options={{ drawerIcon: () => iconCall(faUserCircle) }} component={HomeScreen} />   
+        <Drawer.Screen name='Inicio' options={{ drawerIcon: () => iconCall(faUserCircle) , title:"Hola Alfredo!"}} component={HomeScreen} />   
         <Drawer.Screen name='Calendario' options={{drawerIcon: () => iconCall(faCalendarAlt) }} component={CalendarScreen} />
         <Drawer.Screen name='Recetas' options={{drawerIcon: () => iconCall(faList) }} component={RecipesScreen} />   
         <Drawer.Screen name='Tutoriales' options={{drawerIcon: () => iconCall(faUtensils) }} component={TutorialsScreen} />     
@@ -35,17 +44,24 @@ const drawerItemsStyles = {
   activeTintColor: '#FFFFFF',
   inactiveTintColor: '#FFFFFF',
   activeBackgroundColor: '#B54646',
-  fontSize: 50
+  labelStyle: {
+    fontSize: 22,
+    fontFamily: 'museo-moderno-regular'
+  }
 }; 
+
+/* FUNCION PARA LLAMAR ICONOS DE FONTAWESOME */
 
 const iconCall = (iconName) => 
   <FontAwesomeIcon icon={ iconName } size={20} color={'#FFFFFF'} />
+
+/* FUNCION QUE RETORNA EL BOTON PARA CERRAR SESION */
 
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-      <DrawerItem label="Salir" labelStyle={{color: '#FFFFFF'}} 
+      <DrawerItem label="Salir" labelStyle={{color: '#FFFFFF' , fontSize: 22, fontFamily: 'museo-moderno-regular'}} 
         icon = { () => iconCall(faSignOutAlt) } 
         onPress={() => alert('SALISTE DE LA APP')} 
       />

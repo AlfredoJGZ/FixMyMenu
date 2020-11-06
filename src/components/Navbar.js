@@ -7,7 +7,7 @@ import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigation } from '@react-navigation/native';
 
 
-function Navbar(){
+function Navbar({ title }){
 
   const navigation = useNavigation();
 
@@ -20,7 +20,7 @@ function Navbar(){
         </View>
       </TouchableHighlight>
 
-      <Text style={styles.title}>FixMyMenu</Text>
+      <Text style={styles.title}>{ title }</Text>
 
       <TouchableHighlight>
         <View>
@@ -28,7 +28,7 @@ function Navbar(){
         </View>
       </TouchableHighlight>
 
-      <StatusBar style="auto" />
+      <StatusBar style="auto" backgroundColor='#972626'  barStyle={'light-content'} />
 
     </View>
     );
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
 
     title: {
         color: '#FFFFFF',
-        fontSize: 15,
+        fontSize: 24,
+        fontFamily: 'museo-moderno-regular'
     }
 
 });

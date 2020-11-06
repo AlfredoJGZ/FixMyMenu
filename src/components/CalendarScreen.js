@@ -3,10 +3,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Navbar from './Navbar'
 
-function CalendarScreen(){
+function CalendarScreen({ route }){
     return (
         <View>
-          <Navbar />
+          <Navbar title={route.name}/>
           <Text>CALENDARIO!</Text>
           <StatusBar style="auto" />
         </View>

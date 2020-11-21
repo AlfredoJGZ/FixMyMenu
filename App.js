@@ -17,7 +17,7 @@ export default function App() {
   useEffect(() => {
     const loadFont = async () => {
       await Font.loadAsync({
-        'museo-moderno-regular': require('./assets/fonts/MuseoModerno-Regular.ttf')
+        'segoe-ui': require('./assets/fonts/segoeui.ttf')
       })
     }
   });
@@ -46,7 +46,7 @@ const drawerItemsStyles = {
   activeBackgroundColor: '#B54646',
   labelStyle: {
     fontSize: 22,
-    fontFamily: 'museo-moderno-regular'
+    fontFamily: 'segoe-ui'
   }
 }; 
 
@@ -61,7 +61,7 @@ function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-      <DrawerItem label="Salir" labelStyle={{color: '#FFFFFF' , fontSize: 22, fontFamily: 'museo-moderno-regular'}} 
+      <DrawerItem label="Salir" labelStyle={{color: '#FFFFFF' , fontSize: 22, fontFamily: 'segoe-ui'}} 
         icon = { () => iconCall(faSignOutAlt) } 
         onPress={() => alert('SALISTE DE LA APP')} 
       />

@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import Constants from "expo-constants";
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome' 
 import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigation } from '@react-navigation/native';
 
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     title: {
         color: '#FFFFFF',
         fontSize: 24,
-        fontFamily: 'museo-moderno-regular'
+        fontFamily: 'segoe-ui'
     }
 
 });
